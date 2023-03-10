@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     "drf_yasg",
     "captcha",
     'channels',
+    'crud_demo',
+    'sample',
 ]
 
 MIDDLEWARE = [
@@ -175,14 +177,14 @@ CHANNEL_LAYERS = {
         "BACKEND": "channels.layers.InMemoryChannelLayer"
     }
 }
-# CHANNEL_LAYERS = {
-#     'default': {
-#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
-#         'CONFIG': {
-#             "hosts": [('127.0.0.1', 6379)], #需修改
-#         },
-#     },
-# }
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)], #需修改
+        },
+    },
+}
 
 
 # ================================================= #
@@ -397,6 +399,6 @@ PLUGINS_URL_PATTERNS = []
 # ********** 一键导入插件配置开始 **********
 # 例如:
 # from dvadmin_upgrade_center.settings import *    # 升级中心
-# from dvadmin_celery.settings import *            # celery 异步任务
+from dvadmin_celery.settings import *            # celery 异步任务
 # ...
 # ********** 一键导入插件配置结束 **********
